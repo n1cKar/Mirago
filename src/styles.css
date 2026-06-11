@@ -1,0 +1,119 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.16 0.04 295);
+  --foreground: oklch(0.98 0.01 300);
+  --card: oklch(0.20 0.05 295);
+  --card-foreground: oklch(0.98 0.01 300);
+  --popover: oklch(0.20 0.05 295);
+  --popover-foreground: oklch(0.98 0.01 300);
+  --primary: oklch(0.78 0.20 330);
+  --primary-foreground: oklch(0.15 0.04 295);
+  --secondary: oklch(0.26 0.06 295);
+  --secondary-foreground: oklch(0.98 0.01 300);
+  --muted: oklch(0.24 0.05 295);
+  --muted-foreground: oklch(0.72 0.04 300);
+  --accent: oklch(0.70 0.22 200);
+  --accent-foreground: oklch(0.15 0.04 295);
+  --destructive: oklch(0.62 0.24 25);
+  --destructive-foreground: oklch(0.98 0.01 300);
+  --border: oklch(0.30 0.05 295);
+  --input: oklch(0.28 0.05 295);
+  --ring: oklch(0.78 0.20 330);
+  --brand: oklch(0.78 0.20 330);
+  --brand-2: oklch(0.70 0.22 200);
+}
+
+.dark {
+  --background: oklch(0.13 0.04 295);
+  --foreground: oklch(0.98 0.01 300);
+  --card: oklch(0.18 0.05 295);
+  --card-foreground: oklch(0.98 0.01 300);
+  --popover: oklch(0.18 0.05 295);
+  --popover-foreground: oklch(0.98 0.01 300);
+  --primary: oklch(0.78 0.20 330);
+  --primary-foreground: oklch(0.15 0.04 295);
+  --secondary: oklch(0.24 0.06 295);
+  --secondary-foreground: oklch(0.98 0.01 300);
+  --muted: oklch(0.22 0.05 295);
+  --muted-foreground: oklch(0.72 0.04 300);
+  --accent: oklch(0.70 0.22 200);
+  --accent-foreground: oklch(0.15 0.04 295);
+  --destructive: oklch(0.62 0.24 25);
+  --destructive-foreground: oklch(0.98 0.01 300);
+  --border: oklch(0.28 0.05 295);
+  --input: oklch(0.26 0.05 295);
+  --ring: oklch(0.78 0.20 330);
+  --brand: oklch(0.78 0.20 330);
+  --brand-2: oklch(0.70 0.22 200);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body, #root { height: 100%; }
+  body {
+    background: radial-gradient(ellipse at top, oklch(0.22 0.10 320) 0%, var(--color-background) 60%);
+    color: var(--color-foreground);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-brand-2) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-brand-2) 100%);
+  }
+  .ring-glow {
+    box-shadow: 0 0 0 1px oklch(1 0 0 / 0.08), 0 20px 60px -10px oklch(0.78 0.20 330 / 0.35);
+  }
+  .glass {
+    background: oklch(0.20 0.05 295 / 0.65);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+  }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .scrollbar-none { scrollbar-width: none; }
+}
